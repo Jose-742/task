@@ -1,4 +1,5 @@
-package models;
+package com.task.models;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,9 +11,15 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = Task.TABLE_NAME)
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Task {
 	public static final String TABLE_NAME = "task";
 
