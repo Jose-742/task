@@ -3,7 +3,6 @@ package com.task.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -17,14 +16,10 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = User.TABLE_NAME)
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class User {
 	public interface CreateUser{}
@@ -50,8 +45,8 @@ public class User {
     @Size(groups = { CreateUser.class, UpdateUser.class }, min = 8, max = 60)
 	private String password;
 
-	@JsonIgnore
 	@OneToMany(mappedBy = "user")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Task> tasks = new ArrayList<Task>();
 
 }
