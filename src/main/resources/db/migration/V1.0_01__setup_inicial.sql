@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE task (
     id SERIAL PRIMARY KEY,
-    users_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
+    users_id BIGINT REFERENCES users(id) ON DELETE NO ACTION ,
     description VARCHAR(255) NOT NULL,
     CONSTRAINT description_length_check CHECK (LENGTH(description) >= 1 AND LENGTH(description) <= 255)
 );
