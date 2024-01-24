@@ -3,6 +3,7 @@ package com.task.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -29,7 +30,7 @@ public class User {
 	public interface CreateUser{}
 	public interface UpdateUser{}
 	
-	public static final String TABLE_NAME = "user_account";
+	public static final String TABLE_NAME = "users";
 
 	@Id
 	@Column(name = "id", unique = true)
@@ -49,6 +50,7 @@ public class User {
     @Size(groups = { CreateUser.class, UpdateUser.class }, min = 8, max = 60)
 	private String password;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Task> tasks = new ArrayList<Task>();
 

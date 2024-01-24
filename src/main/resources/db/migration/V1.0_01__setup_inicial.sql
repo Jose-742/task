@@ -1,4 +1,4 @@
-CREATE TABLE user_account (
+CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(60) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE user_account (
 
 CREATE TABLE task (
     id SERIAL PRIMARY KEY,
-    user_account_id BIGINT REFERENCES user_account(id) ON DELETE CASCADE,
+    users_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
     description VARCHAR(255) NOT NULL,
     CONSTRAINT description_length_check CHECK (LENGTH(description) >= 1 AND LENGTH(description) <= 255)
 );

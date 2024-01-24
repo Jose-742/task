@@ -1,6 +1,7 @@
 package com.task.models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +31,8 @@ public class Task {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false, updatable = false)
+	@JoinColumn(name = "users_id", nullable = false, updatable = false)
+	@JsonManagedReference
 	private User user;
 
 	@Column(name = "description", length = 255, nullable = false)
@@ -38,5 +40,10 @@ public class Task {
     @NotEmpty
     @Size(min = 1, max = 255)
 	private String description;
+
+	@Override
+	public String toString() {
+		return "Task";
+	}
 
 }
