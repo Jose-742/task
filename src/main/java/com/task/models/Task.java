@@ -9,7 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,8 +34,9 @@ public class Task {
 	private User user;
 
 	@Column(name = "description", length = 255, nullable = false)
-	@NotBlank
-	@Size(min = 1, max = 255)
+	@NotNull
+    @NotEmpty
+    @Size(min = 1, max = 255)
 	private String description;
 
 }
