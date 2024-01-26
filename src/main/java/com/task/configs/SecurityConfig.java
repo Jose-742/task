@@ -65,7 +65,9 @@ public class SecurityConfig {
                         )
                         .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                                 .authenticationManager(authenticationManager)
-                                        .addFilter(new JWTAuthenticationFilter(this.authenticationManager, this.jwtUtil));
+                                .addFilter(new JWTAuthenticationFilter(this.authenticationManager, this.jwtUtil))
+                                .addFilter(new JWTAuthorizationFilter(this.authenticationManager,
+                                        this.jwtUtil, this.userDetailsService));
 
         return http.build();
     }
