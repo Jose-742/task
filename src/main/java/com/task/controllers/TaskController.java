@@ -27,9 +27,9 @@ public class TaskController {
     }
 
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Task>> findAllByUserId(@PathVariable Long userId){
-        List<Task> tasks = this.taskService.findAllByUserId(userId);
+    @GetMapping("/user")
+    public ResponseEntity<List<Task>> findAllByUser(){
+        List<Task> tasks = this.taskService.findAllByUser();
         return ResponseEntity.ok().body(tasks);
     }
 
