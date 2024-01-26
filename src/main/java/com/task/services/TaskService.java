@@ -3,13 +3,13 @@ package com.task.services;
 import java.util.List;
 import java.util.Objects;
 
-import com.task.models.ProfileEnum;
+import com.task.models.enums.ProfileEnum;
+import com.task.models.projection.TaskProjection;
 import com.task.security.UserSpringSecurity;
 import com.task.services.exceptions.AuthorizationException;
 import com.task.services.exceptions.DataBindingViolationException;
 import com.task.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,7 +39,7 @@ public class TaskService {
 	}
 
 
-	public List<Task> findAllByUser(){
+	public List<TaskProjection> findAllByUser(){
 		UserSpringSecurity userSpringSecurity = UserService.authenticated();
 		if (Objects.isNull(userSpringSecurity))
 			throw new AuthorizationException("Acesso negado!");

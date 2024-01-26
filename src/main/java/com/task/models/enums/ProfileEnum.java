@@ -1,4 +1,4 @@
-package com.task.models;
+package com.task.models.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

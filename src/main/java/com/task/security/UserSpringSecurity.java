@@ -1,6 +1,6 @@
 package com.task.security;
 
-import com.task.models.ProfileEnum;
+import com.task.models.enums.ProfileEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

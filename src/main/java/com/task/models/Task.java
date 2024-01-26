@@ -9,12 +9,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = Task.TABLE_NAME)
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Task {
 	public static final String TABLE_NAME = "task";
@@ -29,9 +32,8 @@ public class Task {
 	private User user;
 
 	@Column(name = "description", length = 255, nullable = false)
-	@NotNull
-    @NotEmpty
     @Size(min = 1, max = 255)
+	@NotEmpty
 	private String description;
 
 }

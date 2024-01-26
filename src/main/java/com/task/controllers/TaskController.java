@@ -1,6 +1,7 @@
 package com.task.controllers;
 
 import com.task.models.Task;
+import com.task.models.projection.TaskProjection;
 import com.task.services.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class TaskController {
 
 
     @GetMapping("/user")
-    public ResponseEntity<List<Task>> findAllByUser(){
-        List<Task> tasks = this.taskService.findAllByUser();
+    public ResponseEntity<List<TaskProjection>> findAllByUser(){
+        List<TaskProjection> tasks = this.taskService.findAllByUser();
         return ResponseEntity.ok().body(tasks);
     }
 
