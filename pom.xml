@@ -11,6 +11,7 @@
 	<groupId>com</groupId>
 	<artifactId>task</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>task-api</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -99,6 +100,13 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+		<finalName>task-api</finalName>
 		<plugins>
 			<plugin>
 	            <groupId>org.flywaydb</groupId>
